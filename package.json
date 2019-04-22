@@ -1,0 +1,24 @@
+{
+  "name": "unit-11-friendfinder",
+  "version": "1.0.0",
+  "description": "App for matching friends",
+  "main": "server.js",
+  "scripts": {
+    "test": "Test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsetnik18/unit-11-FriendFinder.git"
+  },
+  "author": "gsetnik18",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsetnik18/unit-11-FriendFinder/issues"
+  },
+  "homepage": "https://github.com/gsetnik18/unit-11-FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
+}
