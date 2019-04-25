@@ -12,12 +12,11 @@ module.exports = function (app) {
     app.post('/api/friends', function (req, res) {
         var userIn = req.body;
         var userRes = userIn.scores;
-        console.log(req.body.scores)
+        //console.log(req.body.scores)
 
         // parseInt for scores
         for (var i = 0; i < userRes.scores.length; i++) {
             user.scores[i] = parseInt(userRes.scores[i]);
         };
-        console.log(req);
     });
 };
