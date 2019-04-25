@@ -6,7 +6,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 app.get(express.static(path.join(__dirname, './app/public')));
-app.use(express.static(path.join(__dirname, 'app/data')));
+app.use(express.static(path.join(__dirname, 'app/data/')));
 
 
 require('./app/routing/apiroutes')(app);
