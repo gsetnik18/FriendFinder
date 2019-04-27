@@ -10,30 +10,36 @@ module.exports = function (app) {
     });
     //add new friends
     app.post('/api/friends', function (req, res) {
-        var userIn = req.body;
-        var userRes = userIn.scores;
+      
+        console.log(req.body);
+    
+        
+        
+        
+        
+        res.json(friendList);
+        //parseInt for scores
+    //     for (var i = 0; i < res.scores; i++) {
+    //         res.scores[i] = parseInt(res.scores[i]);
+    //     };
+    //     var friendshipIndex = 0;
+    //     var minimumDifference = 400;
 
-        // parseInt for scores
-        for (var i = 0; i < userRes.scores.length; i++) {
-            user.scores[i] = parseInt(userRes.scores[i]);
-        };
-        var friendshipIndex = 0;
-        var minimumDifference = 400;
+    //     for(var i = 0; i < friendList.length; i++) {
+    //         var difference = 0;
+    //         for(var j = 0; j < friendList[i].scores.length; j++) {
+    //          difference += Math.abs(res.scores[j] - friendList[i].scores[j]);
 
-        for(var i = 0; i < friends.length; i++) {
-            var difference = 0;
-            for(var j = 0; j < friends[i].scores.length; j++) {
-             difference += Math.abs(user.scores[j] - friends[i].scores[j]);
+    //           if(difference < minimumDifference) {
+    //             friendshipIndex = i;
+    //             minimumDifference = difference;
+    //           }
+    //         }
 
-              if(difference < minimumDifference) {
-                friendshipIndex = i;
-                minimumDifference = difference;
-              }
-            }
+    //         friendList.push(userIn);
 
-            friends.push(userIn);
-
-            res.json(friends[friendshipIndex]);
-        }
-    });
+    //         res.json(friendList[friendshipIndex]);
+    //     }
+    //     console.log(friendList[friendshipIndex])
+     });
 }
