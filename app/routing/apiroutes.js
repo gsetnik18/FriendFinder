@@ -1,6 +1,4 @@
 //Dependencies
-var path = require("path");
-
 //friend list
 var friendList = require('../data/friends.js');
 
@@ -10,36 +8,47 @@ module.exports = function (app) {
     });
     //add new friends
     app.post('/api/friends', function (req, res) {
-      
-        console.log(req.body);
-    
-        
-        
-        
-        
-        res.json(friendList);
         //parseInt for scores
-    //     for (var i = 0; i < res.scores; i++) {
-    //         res.scores[i] = parseInt(res.scores[i]);
-    //     };
-    //     var friendshipIndex = 0;
-    //     var minimumDifference = 400;
+        console.log(req.body);
+        var closestMatch = {
+            name: "",
+            photo: "",
+            friendDiff: 400 
+        };
 
-    //     for(var i = 0; i < friendList.length; i++) {
-    //         var difference = 0;
-    //         for(var j = 0; j < friendList[i].scores.length; j++) {
-    //          difference += Math.abs(res.scores[j] - friendList[i].scores[j]);
+        var userData = req.body;
+        var userScores = userData.scores;
 
-    //           if(difference < minimumDifference) {
-    //             friendshipIndex = i;
-    //             minimumDifference = difference;
-    //           }
-    //         }
+        var totalDiff;
 
-    //         friendList.push(userIn);
+        for (var i = 0; i < friendList.length; i++) {
+            var current = friendList[i];
+            totalDiff = 0;
 
-    //         res.json(friendList[friendshipIndex]);
-    //     }
-    //     console.log(friendList[friendshipIndex])
+           
+
+            for (var j=0; j<current.scores.length; j++){
+                var currentFriendScore = current.scores[j];
+                var currentUserScore = userScores[j];
+
+
+                totalDiff += Math.abs(parseInt(currentUserScore) - parseInt(currentFriendScore));
+
+                if (totalDiff <= closestMatch.friendDiff){
+                    closestMatch.name = current.name;
+                    closestMatch.photo = current.photo;
+                    closestMatch.friendDiff = totalDiff
+                }
+            }
+            
+
+
+            //res.json(closestMatch);
+        };
+        friendList.push(userData);
+        res.send(closestMatch);
+        
+
+
      });
 }

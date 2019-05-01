@@ -13,16 +13,18 @@
 
 <body>
     <header>
-        <h1>Friend Finder</h1>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/survey">Survey</a>
-            </li>
-            <p>|</p>
-            <li class="nav-item">
-                <a class="nav-link active" href="/home">Friends List</a>
-            </li>
-        </ul>
+        <div class="jumbotron">
+            <h1>Friend Finder</h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/survey">Survey</a>
+                </li>
+                <p>|</p>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/app/data/friends.js" id = "friends-button">Friends List</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <div class="container content survey-body">
@@ -182,7 +184,7 @@
             console.log("I'm ready!")
         });
         $('#submit-button').on('click', function (event) {
-        
+
             //$('#myInput').trigger('focus')
             //console.log("Hello World!");
             event.preventDefault();
@@ -201,9 +203,9 @@
                 $("#question9").val().trim(),
                 $("#question10").val().trim()]
             }
-                console.log(data);
-            $.post('/api/friends', data, function(friendMatch) {
-                console.log(friendMatch);
+            console.log(data);
+            $.post('/api/friends', data, function (friendMatch) {
+                console.log(friendMatch);          
             })
 
         })
